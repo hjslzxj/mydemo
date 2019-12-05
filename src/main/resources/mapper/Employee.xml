@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fulan.mydemo.hjs.dao.EmployeeDao">
+    <select id="selectByUsername" resultType="com.fulan.mydemo.hjs.entity.Employee">
+        SELECT
+			*
+		FROM
+			h_employee
+		WHERE
+			username = #{username}
+    </select>
+    
+    <update id="updateSelectiveByPrimaryKey" parameterType="com.fulan.mydemo.hjs.entity.Employee">
+    update h_employee 
+    <set> 
+	      <if test="agentid != null">
+	        agentid = #{agentid,jdbcType=INTEGER},
+	      </if>
+	      <if test="shopid != null">
+	        shopid = #{shopid,jdbcType=INTEGER},
+	      </if>
+	      <if test="username != null">
+	        username = #{username,jdbcType=VARCHAR},
+	      </if>
+	      <if test="password != null">
+	        password = #{password,jdbcType=VARCHAR},
+	      </if>
+	      <if test="realname != null">
+	        realname = #{realname,jdbcType=VARCHAR},
+	      </if>
+	      <if test="status != null">
+	        status = #{status,jdbcType=INTEGER},
+	      </if>
+	      <if test="cityid != null">
+	        cityid = #{cityid,jdbcType=INTEGER},
+	      </if>
+	      <if test="districtid != null">
+	        districtid = #{districtid,jdbcType=INTEGER},
+	      </if>
+	      <if test="provinceid != null">
+	        provinceid = #{provinceid,jdbcType=INTEGER},
+	      </if>
+	      <if test="cellphone != null">
+	        cellphone = #{cellphone,jdbcType=VARCHAR},
+	      </if>
+	      <if test="photo != null">
+	        photo = #{photo,jdbcType=VARCHAR},
+	      </if>
+	      <if test="depid != null">
+	        depid = #{depid,jdbcType=INTEGER},
+	      </if>
+	      <if test="positionid != null">
+	        positionid = #{positionid,jdbcType=INTEGER},
+	      </if>
+	      <if test="lastlogintime != null">
+	        lastlogintime = #{lastlogintime,jdbcType=TIMESTAMP},
+	      </if>
+	      <if test="lastloginip != null">
+	        lastloginip = #{lastloginip,jdbcType=VARCHAR},
+	      </if>
+	      <if test="mobiletoken != null">
+	        mobiletoken = #{mobiletoken,jdbcType=VARCHAR},
+	      </if>
+	      <if test="token != null">
+	        token = #{token,jdbcType=VARCHAR},
+	      </if>
+	      <if test="getuiid != null">
+	        getuiid = #{getuiid,jdbcType=VARCHAR},
+	      </if>
+	      <if test="tokendeadline != null">
+	        tokendeadline = #{tokendeadline,jdbcType=TIMESTAMP},
+	      </if>
+	      <if test="logincount != null">
+	        logincount = #{logincount,jdbcType=INTEGER},
+	      </if>
+	      <if test="createUser != null">
+	        create_user = #{createUser,jdbcType=VARCHAR},
+	      </if>
+	      <if test="createTime != null">
+	        create_time = #{createTime,jdbcType=TIMESTAMP},
+	      </if>
+	      <if test="deleteFlag != null">
+	        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+	      </if>
+	      <if test="deleteTime != null">
+	        delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+	      </if>
+	      <if test="deleteUser != null">
+	        delete_user = #{deleteUser,jdbcType=VARCHAR},
+	      </if>
+	</set>
+	where  id = #{id,jdbcType=INTEGER} 
+  </update>
+</mapper>
